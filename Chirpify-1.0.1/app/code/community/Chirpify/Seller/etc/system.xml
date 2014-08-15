@@ -1,0 +1,79 @@
+
+<config>
+  <sections>
+    <chirpify_seller translate="label" module="chirpify_seller">
+      <label>Chirpify</label>
+      <tab>advanced</tab>
+      <frontend_type>text</frontend_type>
+      <sort_order>1910</sort_order>
+      <show_in_default>1</show_in_default>
+      <show_in_website>1</show_in_website>
+      <show_in_store>1</show_in_store>
+      <groups>
+        <options>
+          <label>Options</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>1</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <api_key>
+              <!-- http://alanstorm.com/magento_system_configuration_in_depth_tutorial -->
+              <label>API Key</label>
+              <comment>Your Chirpify API Key</comment>
+              <frontend_type>text</frontend_type>
+              <sort_order>10</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </api_key>
+            <api_url>
+              <label>API URL</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>12</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </api_url>
+            <chirpify_user_id>
+              <label>Chirpify User ID</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>13</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </chirpify_user_id>
+
+
+            <api_method_new>
+              <label>API Method: New Campaign</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>15</sort_order>
+            </api_method_new>
+            <api_method_update>
+              <label>API Method: Update Campaign</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>25</sort_order>
+            </api_method_update>
+            <api_method_lookup>
+              <label>API Method: Lookup Campaign</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>26</sort_order>
+            </api_method_lookup>
+            <api_method_userlookup>
+              <label>API Method: Lookup User</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>27</sort_order>
+            </api_method_userlookup>
+            <api_method_user_from_key>
+              <label>API Method: Lookup Chirpify User ID</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>28</sort_order>
+            </api_method_user_from_key>
+          </fields>
+        </options>
+      </groups>
+    </chirpify_seller>
+  </sections>
+</config>

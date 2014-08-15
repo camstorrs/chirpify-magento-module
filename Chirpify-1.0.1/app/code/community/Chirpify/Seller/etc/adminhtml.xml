@@ -1,0 +1,39 @@
+<config>
+  <menu>
+    <catalog>
+      <children>
+        <chirpify>
+          <title>Chirpify Campaigns</title>
+          <sort_order>999999</sort_order>
+          <action>adminhtml/chirpify/index</action>
+        </chirpify>
+      </children>
+    </catalog>
+  </menu>
+  <acl>
+    <resources>
+      <admin>
+        <children>
+          <system>
+            <children>
+              <config>
+                <children>
+                  <chirpify_seller>
+                    <title>Chirpify Options</title>
+                  </chirpify_seller>
+                </children>
+              </config>
+            </children>
+          </system>
+          <catalog>
+            <children>
+              <chirpify>
+                <title>Chirpify Campaigns</title>
+              </chirpify>
+            </children>
+          </catalog>
+        </children>
+      </admin>
+    </resources>
+  </acl>
+</config>

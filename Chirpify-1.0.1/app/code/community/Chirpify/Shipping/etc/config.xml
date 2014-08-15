@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Chirpify_Shipping>
+			<version>0.1.0</version>
+		</Chirpify_Shipping>
+	</modules>
+	<frontend>
+		<routers>
+			<chirpify_shipping>
+				<use>standard</use>
+				<args>
+					<module>Chirpify_Shipping</module>
+					<frontName>chirpify_shipping</frontName>
+				</args>
+			</chirpify_shipping>
+		</routers>
+	</frontend>
+	<global>
+		<blocks>
+			<chirpify_shipping>
+				<class>Chirpify_Shipping_Block</class>
+			</chirpify_shipping>
+		</blocks>
+		<models>
+			<chirpify_shipping>
+				<class>Chirpify_Shipping_Model</class>
+			</chirpify_shipping>
+		</models>
+		<helpers>
+			<chirpify_shipping>
+				<class>Chirpify_Shipping_Helper</class>
+			</chirpify_shipping>
+		</helpers>
+	</global>
+	
+	<default>
+	    <carriers>
+	        <chirpifyseller>
+	            <active>1</active>
+	            <model>chirpify_shipping/carrier_chirpify</model>
+	            <title>Name of Carrier</title>
+	            <name>Name of Rate</name>
+	        </chirpifyseller>
+	    </carriers>
+	</default> 
+</config>

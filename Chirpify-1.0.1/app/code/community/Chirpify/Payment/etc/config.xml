@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<modules>
+		<Chirpify_Payment>
+			<version>0.1.0</version>
+		</Chirpify_Payment>
+	</modules>
+	<frontend>
+		<routers>
+			<chirpify_payment>
+				<use>standard</use>
+				<args>
+					<module>Chirpify_Payment</module>
+					<frontName>chirpify_payment</frontName>
+				</args>
+			</chirpify_payment>
+		</routers>
+	</frontend>
+	<global>
+		<blocks>
+			<chirpify_payment>
+				<class>Chirpify_Payment_Block</class>
+			</chirpify_payment>
+		</blocks>
+		<models>
+			<chirpify_payment>
+				<class>Chirpify_Payment_Model</class>
+			</chirpify_payment>
+		</models>
+		<helpers>
+			<chirpify_payment>
+				<class>Chirpify_Payment_Helper</class>
+			</chirpify_payment>
+		</helpers>
+	</global>
+	
+    <default>
+        <payment>
+            <chirpify_seller>
+                <active>1</active>
+                <model>chirpify_payment/payment</model>
+                <order_status>processing</order_status>
+                <title>Paid for by Chirpify</title> 
+                <cctypes>AE,VI,MC,DI</cctypes>
+                <!-- <payment_action>authorize</payment_action> -->
+                <payment_action>capture</payment_action>
+                <allowspecific>0</allowspecific>
+            </chirpify_seller>
+         </payment>
+    </default>
+        
+</config>

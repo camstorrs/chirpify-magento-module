@@ -1,0 +1,124 @@
+<h2>Installing the Package</h2>
+
+<p>The Seller module is a Magento Connect Package</p>
+
+<pre><code>Chirpify-1.0.1.tgz
+</code></pre>
+
+<p>This is also a tar archive.  If unzipped, the file structure will match Magento's directory structure.  Merging the package directory structure and then clearing Magento cache should be sufficient to manually install the package. </p>
+
+<p>In addition, Magento Connect packages may be installed via the Magento Connect Admin.</p>
+
+<ol>
+<li><p>Browse to <code>System -&gt; Magento Connect -&gt; Magento Connect Manager</code></p></li>
+<li><p>Re-enter your Magento Username and Password and click Login</p></li>
+<li><p>Select the Choose File (under Direct Package file upload)</p></li>
+<li><p>Click Upload</p></li>
+</ol>
+
+<p>You may also sign up for an account on http://magentocommerce.com and list you Magento in the Magento Connect market place.  This will allow users to install it via an extension key.</p>
+
+<p>The extension contains <strong>three</strong> Magento code modules.  The <code>Seller</code> module, which implements the bulk of the application, and a <code>Shipping</code> and <code>Payment</code> module, which implement empty shipping and payment methods for orders place via the API.</p>
+
+<h2>Changing Shipping Module, Rewriting Existing</h2>
+
+<p>The code that add a shipping method to the order is at </p>
+
+<pre><code>app/code/community/Chirpify/Seller/Model/Service/Api/V1/Order.php
+</code></pre>
+
+<p>in the <code>_setShippingMethod</code> method</p>
+
+<pre><code>protected function _setShippingMethod($quote_id, $store_id)
+{
+    $cart_shipping_api  = Mage::getModel('checkout/cart_shipping_api');
+    $shipping_code      = 'chirpifyseller_chirpify_seller';
+    $result             = $cart_shipping_api-&gt;setShippingMethod($quote_id,$shipping_code,$store_id);
+    if(!$result)
+    {
+        throw new Exception(sprintf('Could not add %s Shipping Method',$shipping_code));
+    }    
+    return $cart_shipping_api;
+}
+</code></pre>
+
+<p>Magento developer's may create a class rewrite for this method if they wish to have a different shipping method used for a particular installation.  Copying the above code into their class rewrite, and changing <code>$shipping_code</code></p>
+
+<pre><code>//$shipping_code      = 'chirpifyseller_chirpify_seller';
+$shipping_code      = 'carrier_method';
+</code></pre>
+
+<p>will be the quickest way to accomplish this.    </p>
+
+<h2>Configuration Values</h2>
+
+<p>The Seller module contains several configuration variables.  Many variables are user settable at </p>
+
+<pre><code>System -&gt; Configuration -&gt; Chirpify
+</code></pre>
+
+<p>The defaults for these values, as well as some hard coded items, may be found in </p>
+
+<pre><code>app/etc/config.xml
+</code></pre>
+
+<p>at the</p>
+
+<pre><code>default/chirpify_seller/options
+</code></pre>
+
+<p>node.  </p>
+
+<h3>&lt;orders_in_store_id&gt;</h3>
+
+<p>Configures which Magento store id the API orders will be placed in.</p>
+
+<h3>&lt;api_url&gt;</h3>
+
+<p>Configures the base chirpify API URL</p>
+
+<h3>&lt;api_method_new&gt;</h3>
+
+<p>The API method used to create a new Chirpify listing.</p>
+
+<h3>&lt;api_method_update&gt;</h3>
+
+<p>The API method used to update/unpublish a Chirpify listing.</p>
+
+
+<h3>&lt;api_method_lookup&gt;</h3>
+
+<p>The API method used to lookup a current Chirpify listing.</p>
+
+<h3>&lt;api_method_update&gt;</h3>
+
+<p>The API method used to update/unpublish a Chirpify listing.</p>
+
+
+<h2>Publish and Unpublish Calls</h2>
+
+<p>The publish and unpublish methods are setup as Magento event observers.  If specific implementations need additional actions to happen during an activation and deactivation, they can listen for the Magento events</p>
+
+<pre><code>chirpify_seller_listing_publish
+chirpify_seller_listing_unpublish
+</code></pre>
+
+<p>The base observers which make the calls to the Chirpify API are at</p>
+
+<pre><code>Chirpify/Seller/Model/Observer/Publish.php
+Chirpify/Seller/Model/Observer/Unpublish.php
+</code></pre>
+
+<p>If an exception is thrown during the execution of these observers, the system will interpret that as a failed API attempt, and the listing will not be published. </p>
+
+<h2>Database Table</h2>
+
+<p>There's a single database table for storing the listing configurations. This will be automatically created with a Magento Setup Resource</p>
+
+<pre><code>Chirpify/Seller/sql/chirpify_seller_setup/mysql4-install-0.1.0.php
+</code></pre>
+
+<p>The base name of this table is </p>
+
+<pre><code>chirpify_seller_listings
+</code></pre>

@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<package>
+    <name>Chirpify</name>
+    <version>1.0.0</version>
+    <stability>stable</stability>
+    <license>Commercial</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Chirpify</summary>
+    <description>Chirpify</description>
+    <notes>Chirpify</notes>
+    <authors>
+      <author>
+        <name>Cameron Brown</name>
+        <user>camstorrs</user>
+        <email>camstorrs@gmail.com</email>
+      </author>
+    </authors>
+    <date>2013-04-19</date>
+    <time>00:11:15</time>
+    <contents>
+      <target name="mage">
+        <dir name="app">
+          <dir name="code">
+            <dir name="community">
+              <dir name="Chirpify">
+                <dir name="Seller">
+                  <dir name="Block">
+                    <dir name="Listing">
+                      <dir name="Edit">
+                        <file name="Form.php" hash="7f365428457a43e86006863ec6f320ff"/>
+                        <dir name="Tab">
+                          <file name="Main.php" hash="b5f25f5175d49e7d205c9c5a9e6603ee"/>
+                          <file name="Product.php" hash="caa222fe7d87c4857475113e43d8b2c0"/>
+                          <file name="Products.php" hash="581a8fa59881a7d8730e43b8732f764a"/>
+                        </dir>
+                        <file name="Tabs.php" hash="7101d8c5963c6710c03573718058841f"/>
+                      </dir>
+                      <file name="Edit.php" hash="2b96e2d570b2de033cf8ca224b540750"/>
+                    </dir>
+                    <dir name="Listings">
+                      <file name="Grid.php" hash="001c01804481bca6803f89c97a22d412"/>
+                    </dir>
+                    <file name="Listings.php" hash="ae4a882f891851be7e2022ecf3ee5674"/>
+                    <dir name="Form">
+                      <file name="Edit.php" hash="302f0f9a56b96c61ec6c8bc8a079e0c3"/>
+                    </dir>
+                  </dir>
+                  <dir name="Helper">
+                    <file name="Apiurls.php" hash="4099369c5469f1571601958ec9764b90"/>
+                    <file name="Data.php" hash="4fca12962815ae2c12258047d7328ad8"/>
+                    <file name="Reset.php" hash="757845dc920384e3d714475d50eed6e8"/>
+                  </dir>
+                  <dir name="Model">
+                    <file name="Api.php" hash="90107ff9a83230ef449abaf2b3d013a1"/>
+                    <file name="Listing.php" hash="3d96d7aad76a53091b430eb40fc12a8e"/>
+                    <dir name="Mysql4">
+                      <dir name="Listing">
+                        <file name="Collection.php" hash="1014959e1598ad207173a36e093b1e46"/>
+                      </dir>
+                      <file name="Listing.php" hash="7401cf1e127393f6f8015e881411dec5"/>
+                      <dir name="Resource">
+                        <file name="Setup.php" hash="80c48300b64b2e6750e9c43a3725078e"/>
+                      </dir>
+                    </dir>
+                    <dir name="Observer">
+                      <file name="Publish.php" hash="0667464a367961a864a3be73b487ce23"/>
+                      <file name="Unpublish.php" hash="43fd52054844bdf01cb32c90093300a2"/>
+                    </dir>
+                    <file name="Observer.php" hash="6e4b73719f0c496e9d135110ff12f45b"/>
+                    <file name="Quote.php" hash="3a3c321ebce0ea18c7f08046b8be50ae"/>
+                    <dir name="Service">
+                      <dir name="Api">
+                        <dir name="V1">
+                          <file name="Order.php" hash="b8722222eea2373916a92d436cdb446a"/>
+                        </dir>
+                        <file name="V1.php" hash="2ab73435db1d459024d457bb272c8a14"/>
+                      </dir>
+                    </dir>
+                  </dir>
+                  <dir name="controllers">
+                    <dir name="Chirpify">
+                      <file name="ApiController.php" hash="74a9161f50fe11776bb8f38be230efa6"/>
+                      <file name="CustomerController.php" hash="c3c4c3e17d8c9608d0c303bed4e90719"/>
+                    </dir>
+                    <file name="ChirpifyController.php" hash="ff4dc22fc8d752b0bc9eedea473af110"/>
+                  </dir>
+                  <dir name="etc">
+                    <file name="adminhtml.xml" hash="64d57933227ee9fec5f76b1614f3388f"/>
+                    <file name="config.xml" hash="4db2d3b08f7f958952bbd733626752de"/>
+                    <file name="system.xml" hash="a0b3c0d6854ddcf8e0bb3ebc00df9f0e"/>
+                  </dir>
+                  <dir name="sql">
+                    <dir name="chirpify_seller_setup">
+                      <file name="mysql4-install-0.1.0.php" hash="35c0e6221d4661b9d25706044338e0e7"/>
+                    </dir>
+                  </dir>
+                </dir>
+                <dir name="Payment">
+                  <dir name="Helper">
+                    <file name="Data.php" hash="28d6fdaf21c7dbf44fc7b08bedb78ae4"/>
+                  </dir>
+                  <dir name="Model">
+                    <file name="Payment.php" hash="1a055d94a9116677cef1e6379f3990db"/>
+                  </dir>
+                  <dir name="etc">
+                    <file name="config.xml" hash="f710346704491a0169ba5eb6e489c29a"/>
+                    <file name="system.xml" hash="6e1f94215dd1308469681e5072b98ddc"/>
+                  </dir>
+                </dir>
+                <dir name="Shipping">
+                  <dir name="Model">
+                    <dir name="Carrier">
+                      <file name="Chirpify.php" hash="8e6e25835e7926ffdff6c2e226cecdf4"/>
+                    </dir>
+                  </dir>
+                  <dir name="etc">
+                    <file name="config.xml" hash="38993d81962a58abfe1dfeb361ac3172"/>
+                    <file name="system.xml" hash="e68eb3c74a88d30b4898590b647b7e2f"/>
+                  </dir>
+                </dir>
+              </dir>
+            </dir>
+          </dir>
+          <dir name="etc">
+            <dir name="modules">
+              <file name="Chirpify_Seller.xml" hash="deb4a4f726a839644c7ee8dc799aee21"/>
+              <file name="Chirpify_Payment.xml" hash="8b6c3511c14c74a498d1ed848e5bc09d"/>
+              <file name="Chirpify_Shipping.xml" hash="55847c5f7de0e7955b3d4cac0e31cf9d"/>
+            </dir>
+          </dir>
+        </dir>
+      </target>
+    </contents>
+    <compatible/>
+    <dependencies>
+      <required>
+        <php>
+          <min>5.2.0</min>
+          <max>6.0.0</max>
+        </php>
+      </required>
+    </dependencies>
+</package>
